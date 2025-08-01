@@ -35,8 +35,8 @@ The dataset compiles historical market price data from KAMIS by Kilimo, an offic
   
 It includes daily and weekly wholesale & retail prices for a wide range of commodities across Kenyan markets.  This table contains a total of 63173 records and is structured with the following key columns
 
-![Dataset Columns](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/Data_Columns.png)
-![Columns Description](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/Column_Desc.png)
+![Dataset Columns](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/Dataset_Columns.png)
+
 
 ##  Project Approach  
 **1. Data Pipeline** – Collected, cleaned and merged market datasets.  
@@ -125,10 +125,10 @@ MaliYaLeo/
 ##  Tools & Libraries Used
 
 * **Data Processing & Analysis**: numpy, pandas
-* **Visualization**: Seaborn, Matplotlib`
+* **Visualization**: Seaborn, Matplotlib
 * **Machine Learning Models**: scikit-learn (Ridge Regression), Prophet (Time Series), XGBoost
 * **Deep Learning**: TensorFlow, Keras (LSTM)
-* **Data Scaling & Prep**: StandardScaler, `MinMaxScaler`
+* **Data Scaling & Prep**: StandardScaler, MinMaxScaler
 * **Model Evaluation**: mean_squared_error, mean_absolute_error, r2_score
 
 ##  Insights Deep Dive  
@@ -186,9 +186,9 @@ Farmers can earn up to 25% more by selling in the right county market.
 
 ### **4: Access & Inclusivity**
 
-* Over **77% of rural users depend on mobile money services** (e.g. M‑Pesa), based on **FinAccess 2024 data** ([CBK‑KNBS‑FSD Kenya FinAccess Survey 2024](https://www.centralbank.go.ke/2024/12/13/10960/)) :contentReference[oaicite:7]{index=7}
+* Over **77% of rural users depend on mobile money services** (e.g. M‑Pesa), based on **FinAccess 2024 data** ([CBK‑KNBS‑FSD Kenya FinAccess Survey 2024](https://www.centralbank.go.ke/2024/12/13/10960/))
   
-* Most of this activity is conducted over **USSD** since rural areas have lower smartphone ownership and limited internet access ([Nairobi Business Monthly, “How tech is accelerating financial inclusion”](https://nairobibusinessmonthly.com/kenyans-love-instant-payments-and-thus-unstructured-supplementary-service-data-ussd-comes-out-as-a-better-option/)) :contentReference[oaicite:8]{index=8}
+* Most of this activity is conducted over **USSD** since rural areas have lower smartphone ownership and limited internet access ([Nairobi Business Monthly, “How tech is accelerating financial inclusion”](https://nairobibusinessmonthly.com/kenyans-love-instant-payments-and-thus-unstructured-supplementary-service-data-ussd-comes-out-as-a-better-option/)) 
 
 * This confirms that USSD/SMS channels will provide essential access for rural and underserved users.
 
