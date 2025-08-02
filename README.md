@@ -78,7 +78,7 @@ Before modeling and analysis several data quality checks and cleaning steps were
 ###  Overview of Findings  
 
 * Commodity prices follow clear seasonal patterns peaking around harvest and planting periods.
-* XGBoost emerged as the best model predicting 7–30 day prices with R² > 0.88 enabling actionable planning for farmers and traders.
+* XGBoost emerged as the best model predicting 7–30 day prices with R² > 0.91 enabling actionable planning for farmers and traders.
 * USSD & SMS channels widen access  ensuring even rural users without smartphones benefit.
 
 ### Modeling Overview
