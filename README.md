@@ -85,12 +85,14 @@ Before modeling and analysis several data quality checks and cleaning steps were
 
 We tested multiple approaches to forecast prices.
 
-| Model            | Wholesale MSE ↓ | Wholesale R² ↑ |   Retail MSE ↓ |    Retail R² ↑ |
-| ---------------- | --------------: | -------------: | -------------: | -------------: |
-| Ridge Regression |          500.84 |         0.7850 |         704.32 |         0.7790 |
-| Prophet          |           26.76 |         0.0865 |          16.98 |        -0.0656 |
-| LSTM Neural Net  |  *Not reported* |         0.5850 | *Not reported* | *Not reported* |
-| **XGBoost**      |      **259.87** |     **0.8884** |     **352.44** |     **0.8894** |
+
+| **Model**            |      **Wholesale MSE ↓** |     **Wholesale R² ↑** |         **Retail MSE ↓** |        **Retail R² ↑** |
+| -------------------- | -----------------------: | ---------------------: | -----------------------: | ---------------------: |
+| **Ridge Regression** |                   500.84 |                 0.7850 |                   704.32 |                 0.7790 |
+| **Prophet**          |                    26.76 |                 0.0865 |                    16.98 |                -0.0656 |
+| **LSTM Neural Net**  |             22.20 (RMSE) |                 0.5850 |             Not reported |           Not reported |
+| **XGBoost**          | 176.99 (RMSE ≈ 13.3 KES) | 0.9154 (↑ from 0.8825) | 229.04 (RMSE ≈ 15.1 KES) | 0.9220 (↑ from 0.8931) |
+
 
 **Key takeaway:**
 **XGBoost** achieved the **lowest error (MSE)** and **highest accuracy (R²)** making it the **best-performing model** for both wholesale and retail price forecasts.
