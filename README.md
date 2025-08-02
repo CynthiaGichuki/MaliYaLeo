@@ -60,6 +60,8 @@ The **MaliYaLeo** system uses **PostgreSQL** as its main database. The schema cu
 * **users** – Logs all user interactions via USSD, SMS, and web requests.
 * **system\_logs** – Tracks API events, system messages, and errors.
 
+![Entity Relationship Diagram here](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/database_structure.png)
+
 Before modeling and analysis several data quality checks and cleaning steps were performed on the raw KAMIS dataset to ensure consistency and accuracy:
 
 1. Dropped SupplyVolume – it was empty.
@@ -69,8 +71,6 @@ Before modeling and analysis several data quality checks and cleaning steps were
 5. Cleaned dates – ensured Date in YYYY-MM-DD format.
 6. Removed duplicates – kept only clean, unique records.
 7. Removed outliers – filtered unrealistic price points for accuracy.
-
-![Entity Relationship Diagram here](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/database_structure.png) 
 
 
 ## Executive Summary  
