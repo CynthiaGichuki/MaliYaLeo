@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaliYaLeo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MaliYaLeo</h1>
+            <hr />
+            <ul>
+                <li data-section="home"><i class="fa fa-home"></i> Home</li>
+                <li data-section="analytics"><i class="fa fa-chart-line"></i> Analytics</li>
+                <li data-section="markets"><i class="fa fa-store"></i> Markets</li>
+                <li><i class="fa fa-cog"></i> Settings</li>
+            </ul>
+        </div>
+        <div class="content">
+            
+                <div class="dashboard-summary">
+                    <div class="summary-box">
+                        <h3>Total Commodities</h3>
+                        <div class="value">48</div>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Markets Covered</h3>
+                        <div class="value">103</div>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Total Counties</h3>
+                        <div class="value">47</div>
+                    </div>
+                </div>
+        
+            <div id="home" class="section">
+
+                <section class="form-section">
+                    <h2>Plan Your Market Budget</h2>
+                    <form id="pricePredictionForm">
+                        <label>County:
+                            <select id="countyDropdown" required>
+                                <option value=""> Select County </option>
+                            </select>
+                        </label>
+                        <label>Market:
+                            <select id="marketDropdown" required>
+                                <option value=""> Select Market </option>
+                            </select>
+                        </label>
+                        <label>Commodity:
+                            <select id="commodityDropdown" required>
+                                <option value=""> Select Commodity </option>
+                            </select>
+                        </label>
+                        <label>Date:
+                            <input type="date" id="dateInput" required>
+                        </label>
+                        <button id="prediction" type="submit">
+                            <span id="predictBtnText">See Price</span>
+                            <span id="spinner" class="spinner" style="display: none; margin-left: 5px;"></span>
+                        </button>
+
+                    </form>
+                    <div id="predictionOutput"></div>
+                </section>
+            </div>
+            <div id="analytics" class="section" style="display: none;">
+                <h2>Commodity Price Trends</h2>
+                <canvas id="marketChart" width="600" height="300"></canvas>
+            </div>
+
+            <div id="markets" class="section" style="display: none;">
+                <h2>Current Market Prices</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Commodity</th>
+                            <th>Market</th>
+                            <th>Price (KES/kg)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maize</td>
+                            <td>Nairobi</td>
+                            <td>52</td>
+                        </tr>
+                        <tr>
+                            <td>Beans</td>
+                            <td>Kisumu</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Tomatoes</td>
+                            <td>Eldoret</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('marketChart').getContext('2d');
+        const marketChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                datasets: [{
+                    label: 'Maize Prices (KES)',
+                    data: [45, 50, 47, 55],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+    </script>
+
+    <!-- Section Toggle Logic -->
+    <script>
+        const links = document.querySelectorAll('.sidebar ul li[data-section]');
+        const sections = document.querySelectorAll('.section');
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                const target = link.getAttribute('data-section');
+
+                // Hide all sections
+                sections.forEach(sec => sec.style.display = 'none');
+
+                // Show target section
+                document.getElementById(target).style.display = 'block';
+
+                // Set active link
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Set default to home
+        document.getElementById('home').style.display = 'block';
+    </script>
+
+    <script>
+        const countyMarketMap = {
+            "Baringo": ["Eldama Ravine", "Marigat", "Nginyang", "Kabarnet"],
+            "Bomet": ["Mulot", "Mogogosiek Market", "Ndanai Market", "Kapkwen", "Chebunyo", "Bomet Market"],
+            "Bungoma": ["Kamukuywa", "Kimilili Town", "Chwele", "Bungoma Town"],
+            "Busia": ["Busia Market", "Amukura", "Amoni", "Nambale", "Port Victoria"],
+            "Elgeyo-Marakwet": ["Flax", "Kapcherop", "Kapsowar", "Iten"],
+            "Embu": ["Runyenjes", "Embu Town", "Kiritiri", "Kangaru"],
+            "Homa Bay": ["Kendu Bay", "Kosele", "Mbita", "Rodi", "Homa Bay Market"],
+            "Isiolo": ["Isiolo Town"],
+            "Kajiado": ["Kiserian", "Kitengela", "Ngong", "Kajiado Market"],
+            "Kakamega": ["Khayega", "Malava", "Navakholo", "Mumias", "Kakamega Town"],
+            "Kericho": ["Kericho Town", "Kapkatet", "Litein", "Sotik"],
+            "Kiambu": ["Thika", "Limuru", "Kikuyu", "Kiambu Town"],
+            "Kilifi": ["Kilifi Town", "Malindi", "Mtwapa", "Mariakani"],
+            "Kirinyaga": ["Kerugoya", "Kianyaga", "Kutus", "Kimbimbi"],
+            "Kisii": ["Nyakoe", "Kisii Town", "Suneka", "Ogembo"],
+            "Kisumu": ["Kibuye", "Otonglo", "Ahero", "Kisumu Market"],
+            "Kitui": ["Kitui Town", "Mutomo", "Mwingi", "Kanziko"],
+            "Kwale": ["Ukunda", "Kwale Town", "Msambweni", "Kinango"],
+            "Laikipia": ["Nyahururu", "Rumuruti", "Nanyuki", "Kinamba"],
+            "Lamu": ["Lamu Town", "Mpeketoni", "Hindi"],
+            "Machakos": ["Kangundo", "Mwala", "Machakos Town", "Matuu"],
+            "Makueni": ["Wote", "Emali", "Makindu", "Kibwezi"],
+            "Mandera": ["Mandera Town", "Elwak", "Rhamu"],
+            "Marsabit": ["Marsabit Town", "Moyale", "Laisamis", "Sololo"],
+            "Meru": ["Maua", "Meru Town", "Nkubu", "Timau"],
+            "Migori": ["Migori Town", "Kehancha", "Awendo", "Rongo"],
+            "Mombasa": ["Kongowea", "Likoni", "Mwembe Tayari", "Chaani"],
+            "Murang'a": ["Kangema", "Maragua", "Kandara", "Murang'a Town"],
+            "Nairobi": ["City Park", "Kawangware", "Wakulima", "Kariobangi"],
+            "Nakuru": ["Njoro", "Nakuru Town", "Molo", "Naivasha"],
+            "Nandi": ["Kapsabet", "Mosoriot", "Nandi Hills", "Kabiyet"],
+            "Narok": ["Narok Town", "Ololulunga", "Kilgoris", "Suswa"],
+            "Nyamira": ["Nyamira Town", "Keroka", "Ekerenyo"],
+            "Nyandarua": ["Njabini", "Engineer", "Ol Kalou", "Nyahururu"],
+            "Nyeri": ["Nyeri Town", "Othaya", "Karatina", "Mukurweini"],
+            "Samburu": ["Maralal", "Baragoi", "Archers Post"],
+            "Siaya": ["Siaya Town", "Bondo", "Ugunja", "Usenge"],
+            "Taita-Taveta": ["Voi Retail", "Voi Wholesale", "Wundanyi", "Taveta"],
+            "Tana River": ["Hola", "Bura", "Garsen"],
+            "Tharaka-Nithi": ["Chuka", "Marimanti", "Kathwana"],
+            "Trans Nzoia": ["Kitale", "Endebess", "Kiminini", "Cherangany"],
+            "Turkana": ["Lodwar", "Lokichar", "Kakuma", "Lokitaung"],
+            "Uasin Gishu": ["Eldoret", "Burnt Forest", "Turbo", "Moi's Bridge"],
+            "Vihiga": ["Luanda", "Mbale", "Chavakali", "Majengo"],
+            "Wajir": ["Wajir Town", "Habaswein", "Griftu", "Bute"],
+            "West Pokot": ["Kapenguria", "Chepareria", "Sigor", "Ortum"]
+        };
+
+        const countyDropdown = document.getElementById("countyDropdown");
+        const marketDropdown = document.getElementById("marketDropdown");
+
+        // Populate county dropdown
+        Object.keys(countyMarketMap).sort().forEach(county => {
+            const option = document.createElement("option");
+            option.value = county;
+            option.textContent = county;
+            countyDropdown.appendChild(option);
+        });
+
+        // Update markets when a county is selected
+        countyDropdown.addEventListener("change", function () {
+            const selectedCounty = this.value;
+            const markets = countyMarketMap[selectedCounty] || [];
+
+            // Clear previous market options
+            marketDropdown.innerHTML = '<option value="">-- Select Market --</option>';
+
+            // Populate markets for selected county
+            markets.forEach(market => {
+                const option = document.createElement("option");
+                option.value = market;
+                option.textContent = market;
+                marketDropdown.appendChild(option);
+            });
+        });
+    </script>
+
+    <script>
+        let commodityMap = {};
+
+        async function loadCommodityMap() {
+            try {
+                const response = await fetch('commodity_map.json');
+                if (!response.ok) throw new Error("Failed to load commodity data");
+
+                commodityMap = await response.json();
+            } catch (err) {
+                console.error("Error loading commodity map:", err);
+            }
+        }
+
+        async function setupCommodityDropdown() {
+            await loadCommodityMap();
+
+            const countyDropdown = document.getElementById("countyDropdown");
+            const marketDropdown = document.getElementById("marketDropdown");
+            const commodityDropdown = document.getElementById("commodityDropdown");
+
+            function updateCommodities() {
+                const selectedCounty = countyDropdown.value;
+                const selectedMarket = marketDropdown.value;
+
+                // Clear previous options
+                commodityDropdown.innerHTML = '<option value="">-- Select Commodity --</option>';
+
+                if (
+                    selectedCounty &&
+                    selectedMarket &&
+                    commodityMap[selectedCounty] &&
+                    commodityMap[selectedCounty][selectedMarket]
+                ) {
+                    const commodities = commodityMap[selectedCounty][selectedMarket];
+                    commodities.forEach(commodity => {
+                        const option = document.createElement("option");
+                        option.value = commodity;
+                        option.textContent = commodity;
+                        commodityDropdown.appendChild(option);
+                    });
+                }
+            }
+
+            // Update commodities when market or county changes
+            countyDropdown.addEventListener("change", updateCommodities);
+            marketDropdown.addEventListener("change", updateCommodities);
+        }
+
+        setupCommodityDropdown();
+    </script>
+
+
+    <script src="js/predict.js"></script>
+
+</body>
+
+</html>

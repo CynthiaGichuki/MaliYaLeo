@@ -1,0 +1,1926 @@
+{
+  "Kisumu": {
+    "Ahero": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Katito": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Muhoroni": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Holo": [
+      "Beans",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Kibuye": [
+      "Beans",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes",
+      "Wheat"
+    ]
+  },
+  "Siaya": {
+    "Akala": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tea",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Aram": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat",
+      "Wheat Flour"
+    ],
+    "Bondo": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat",
+      "Wheat Flour"
+    ],
+    "Ugunja": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Siaya": [
+      "Eggs"
+    ]
+  },
+  "Migori": {
+    "Awendo": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Marindi": [
+      "Avocado",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tea",
+      "Tomatoes"
+    ],
+    "Rongo": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Mabera": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Wath Ong'Er": [
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Isebania Market": [
+      "Dry Maize"
+    ]
+  },
+  "Nakuru": {
+    "Bahati": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Wheat"
+    ],
+    "Naivasha Market": [
+      "Avocado",
+      "Beans",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Molo": [
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Nakuru Top Market": [
+      "Beans"
+    ],
+    "Nakuru Wakulima": [
+      "Beans",
+      "Wheat"
+    ]
+  },
+  "Trans-Nzoia": {
+    "Bondeni": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kitale Municipality Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Sikhendu": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Kiminini - Kitale": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Mowlem Market": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Sibanga": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Stadium - Kitale": [
+      "Wheat"
+    ]
+  },
+  "Bungoma": {
+    "Bungoma Town": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Chwele": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Kamukuywa": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Kimilili Town": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes",
+      "Tomatoes"
+    ]
+  },
+  "Tana-River": {
+    "Bura Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ]
+  },
+  "Busia": {
+    "Busia Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tea",
+      "Tomatoes"
+    ],
+    "Amoni": [
+      "Beans"
+    ],
+    "Nambale": [
+      "Beans",
+      "Dry Maize",
+      "Eggs",
+      "Mangoes"
+    ],
+    "Port Victoria": [
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Maize Flour",
+      "Rice"
+    ]
+  },
+  "Kakamega": {
+    "Butere Livestock Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Khayega": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tea",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kipkaren": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Mumias": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Sabatia": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Malimili Livestock Market": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ],
+    "Musoli Market": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Irish Potatoes",
+      "Tomatoes"
+    ],
+    "Nambacha Market": [
+      "Beans"
+    ],
+    "Makunga Market": [
+      "Eggs"
+    ]
+  },
+  "Kilifi": {
+    "Charo Wa Mae": [
+      "Avocado",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Gongoni": [
+      "Avocado",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Malindi Old Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Mariakani": [
+      "Avocado",
+      "Beans",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Mtwapa": [
+      "Avocado",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ]
+  },
+  "Bomet": {
+    "Chebunyo": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Kapkwen": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Mogogosiek Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Mulot": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Ndanai Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Bomet Market": [
+      "Beans",
+      "Dry Maize"
+    ]
+  },
+  "Nandi": {
+    "Chepterit Market - Nandi": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kabiyet Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat",
+      "Wheat Flour"
+    ],
+    "Kapsabet Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kibiok": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Chepsonoi Market": [
+      "Beans",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Tomatoes"
+    ],
+    "Serem - Nandi": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Rice",
+      "Tea",
+      "Wheat"
+    ]
+  },
+  "Tharaka-Nithi": {
+    "Chuka": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kaanwa": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Gatunga": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Tomatoes"
+    ],
+    "Kaare": [
+      "Beans"
+    ],
+    "Kathwana": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ]
+  },
+  "Kisii": {
+    "Daraja Mbili": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Nyakoe": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Nyangusu": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ],
+    "Keumbu": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Suneka": [
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ]
+  },
+  "Kwale": {
+    "Diani Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kinango": [
+      "Avocado",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Mwangulu": [
+      "Avocado",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Lungalunga": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Samburu": [
+      "Beans",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ]
+  },
+  "Uasin-Gishu": {
+    "Eldoret Main": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tea",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kimumu - Bahati": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Mois Bridge": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Cheptiret - Uasin Gishu": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Kimumu": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Langas": [
+      "Beans",
+      "Mangoes"
+    ]
+  },
+  "Embu": {
+    "Embu Town": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Makutano Embu": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Kiritiri": [
+      "Beans",
+      "Eggs",
+      "Irish Potatoes"
+    ],
+    "Runyenjes": [
+      "Beans",
+      "Eggs",
+      "Irish Potatoes"
+    ],
+    "Siakago": [
+      "Beans"
+    ]
+  },
+  "Nyeri": {
+    "Gakindu": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes"
+    ],
+    "Karatina": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Chaka": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Nyeri Open Air": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Othaya": [
+      "Beans",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Wheat"
+    ]
+  },
+  "Meru": {
+    "Gakoromone": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kangeta": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Maua": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Nkubu": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Ngundune": [
+      "Eggs"
+    ]
+  },
+  "Garissa": {
+    "Garissa Soko Mugdi": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Mangoes",
+      "Wheat"
+    ]
+  },
+  "Nairobi": {
+    "Gikomba": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kangemi Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kawangware": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Nairobi Wakulima": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Nairobi Supermarkets": [
+      "Beans"
+    ],
+    "Nyamakima": [
+      "Beans",
+      "Dry Maize",
+      "Maize Flour",
+      "Rice",
+      "Wheat"
+    ]
+  },
+  "Nyamira": {
+    "Ikonge": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kebirigo": [
+      "Avocado",
+      "Beans",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Wheat"
+    ],
+    "Keroka": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tea",
+      "Tomatoes",
+      "Wheat",
+      "Wheat Flour"
+    ],
+    "Miruka": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Nyansiongo": [
+      "Beans",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ]
+  },
+  "Muranga": {
+    "Kabati - Muranga": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kiria-Ini Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Rice",
+      "Tomatoes",
+      "Wheat",
+      "Wheat Flour"
+    ],
+    "Mukuyu Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kagunduini": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Kangari": [
+      "Irish Potatoes"
+    ]
+  },
+  "Kitui": {
+    "Kabati Kitui": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Kalundu": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kisasi": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ],
+    "Mwingi Town": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Rice",
+      "Tomatoes",
+      "Wheat Flour"
+    ],
+    "Tseikuru": [
+      "Beans",
+      "Dry Maize"
+    ]
+  },
+  "Kirinyaga": {
+    "Kagio": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kerugoya": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Kutus": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Makutano Kirinyaga": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Ngurubani Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ]
+  },
+  "Makueni": {
+    "Kathonzweni": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Emali Market": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Kambu": [
+      "Beans",
+      "Wheat"
+    ],
+    "Kasikeu": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Tea",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Tawa": [
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Tomatoes"
+    ]
+  },
+  "Vihiga": {
+    "Kilingili": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Luanda": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Cheptulu": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Majengo Vihiga": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Mbale": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Tomatoes"
+    ],
+    "Serem - Vihiga": [
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ]
+  },
+  "Kericho": {
+    "Kipsitet": [
+      "Avocado",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Chepseon": [
+      "Beans",
+      "Carrots",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Kapkatet": [
+      "Beans",
+      "Irish Potatoes",
+      "Tomatoes"
+    ],
+    "Kericho Town": [
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ],
+    "Sondu- Kericho": [
+      "Beans",
+      "Eggs"
+    ]
+  },
+  "Kajiado": {
+    "Kiserian Crops Market": [
+      "Avocado",
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Kitengela": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes"
+    ],
+    "Illbissil Food Market": [
+      "Beans"
+    ],
+    "Kajiado Market": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Kimana Crops Market": [
+      "Beans"
+    ],
+    "Ngong Market": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Ilbissil Livestock Market": [
+      "Eggs"
+    ]
+  },
+  "Mombasa": {
+    "Kongowea": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Sega": [
+      "Avocado",
+      "Beans",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Shika Adabu": [
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Makupa Majengo": [
+      "Wheat"
+    ]
+  },
+  "West-Pokot": {
+    "Makutano West Pokot": [
+      "Avocado",
+      "Beans",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Chepareria": [
+      "Beans",
+      "Eggs",
+      "Irish Potatoes"
+    ],
+    "Lomut": [
+      "Beans",
+      "Irish Potatoes"
+    ],
+    "Orolwo": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes"
+    ],
+    "Ortum": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes"
+    ]
+  },
+  "Samburu": {
+    "Maralal Livestock Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Maize Flour",
+      "Mangoes",
+      "Rice",
+      "Wheat"
+    ],
+    "Poro Market": [
+      "Beans",
+      "Eggs",
+      "Maize Flour",
+      "Rice"
+    ],
+    "Lolkuniyani": [
+      "Eggs"
+    ]
+  },
+  "Taita-Taveta": {
+    "Mghange": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ],
+    "Mwatate": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Taveta Retail Market": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Rice",
+      "Tomatoes",
+      "Wheat"
+    ],
+    "Wundanyi": [
+      "Avocado",
+      "Beans",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Eggs",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ],
+    "Chumvini Livestock Market": [
+      "Beans",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Rice",
+      "Tomatoes"
+    ]
+  },
+  "Lamu": {
+    "Mpeketoni": [
+      "Avocado",
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Lamu": [
+      "Beans",
+      "Eggs",
+      "Irish Potatoes",
+      "Mangoes"
+    ]
+  },
+  "Laikipia": {
+    "Nanyuki Open Air Market": [
+      "Avocado",
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Nyahururu Municipal Market": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Mouwarak Crops Market": [
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Kimanjo Food Crops Market": [
+      "Wheat"
+    ]
+  },
+  "Nyandarua": {
+    "Ol-Kalou": [
+      "Avocado",
+      "Cabbages",
+      "Carrots",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Tomatoes"
+    ],
+    "Soko Mpya": [
+      "Avocado",
+      "Beans",
+      "Carrots",
+      "Irish Potatoes",
+      "Rice",
+      "Wheat"
+    ],
+    "Engineer": [
+      "Beans",
+      "Dry Maize",
+      "Irish Potatoes",
+      "Rice",
+      "Wheat"
+    ],
+    "Kasuku": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ]
+  },
+  "Narok": {
+    "Ololulung'A Market": [
+      "Avocado",
+      "Beans",
+      "Dry Maize",
+      "Irish Potatoes",
+      "Wheat"
+    ]
+  },
+  "Machakos": {
+    "Athi River Open Air Market": [
+      "Beans",
+      "Wheat"
+    ],
+    "Machakos Main Market": [
+      "Beans"
+    ],
+    "Tala Livestock Yard": [
+      "Eggs"
+    ],
+    "Tala Centre Market": [
+      "Irish Potatoes",
+      "Wheat"
+    ]
+  },
+  "Baringo": {
+    "Eldama Ravine": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes",
+      "Wheat"
+    ],
+    "Marigat": [
+      "Beans"
+    ],
+    "Nginyang": [
+      "Beans"
+    ],
+    "Kabarnet": [
+      "Mangoes"
+    ]
+  },
+  "Mandera": {
+    "Elwak Market": [
+      "Beans",
+      "Wheat"
+    ],
+    "Elwak Livestock Market": [
+      "Eggs"
+    ],
+    "Takaba Livestock Market": [
+      "Eggs"
+    ],
+    "Takaba Market": [
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Banisa Market": [
+      "Wheat"
+    ],
+    "Rhamu Market": [
+      "Wheat"
+    ]
+  },
+  "Elgeyo-Marakwet": {
+    "Flax": [
+      "Beans"
+    ],
+    "Kapcherop": [
+      "Beans",
+      "Eggs",
+      "Mangoes"
+    ],
+    "Kapsowar": [
+      "Beans",
+      "Dry Maize",
+      "Irish Potatoes"
+    ],
+    "Iten": [
+      "Wheat"
+    ]
+  },
+  "Homa-Bay": {
+    "Homabay Soko Mjinga": [
+      "Beans"
+    ],
+    "Mbita": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Ndhiwa": [
+      "Beans",
+      "Irish Potatoes",
+      "Mangoes"
+    ]
+  },
+  "Kiambu": {
+    "Jamhuri Market": [
+      "Beans",
+      "Wheat"
+    ]
+  },
+  "Turkana": {
+    "Kakuma Modern Market": [
+      "Beans",
+      "Irish Potatoes",
+      "Wheat"
+    ],
+    "Lodwar Fresh Produce": [
+      "Beans",
+      "Irish Potatoes"
+    ],
+    "Lokichar": [
+      "Eggs"
+    ]
+  },
+  "Wajir": {
+    "Soko Mjinga Wajir": [
+      "Beans",
+      "Cabbages",
+      "Dry Maize",
+      "Dry Onions",
+      "Irish Potatoes",
+      "Kales/Sukuma Wiki",
+      "Mangoes",
+      "Tomatoes"
+    ]
+  },
+  "Isiolo": {
+    "Isiolo Fresh Produce": [
+      "Irish Potatoes",
+      "Wheat"
+    ]
+  }
+}
