@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: market-price-api
+    env: python
+    region: frankfurt  # depending on your location
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host=0.0.0.0 --port=10000
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: 'postgresql+psycopg2://neondb_owner:npg_AKeCc7uDLRa5@ep-summer-fog-a2szlczd-pooler.eu-central-1.aws.neon.tech/market_db?sslmode=require'
