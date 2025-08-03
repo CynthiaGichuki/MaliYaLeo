@@ -2,7 +2,7 @@
 
 ![MaliYaLeo Dashboard](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/Dashboard.jpg) 
 
-**Team Members** : Sammy Macharia, Cynthia Gichuki, Abishang Mueni, Maureen Gathoni, Baraka Nyamai. 
+**Team Members**: Sammy Macharia, Cynthia Gichuki, Abishang Mueni, Maureen Gathoni, Baraka Nyamai. 
 
 ## Introduction  
 
@@ -11,8 +11,8 @@ In Kenya, market prices for key food commodities fluctuate due to seasonal chang
 **MaliYaLeo** is a **data-driven solution** that provides:
 
 -  Real-time and forecasted market prices.  
--  Predictive insights for 7–30 days ahead.  
--  Accessible delivery via **USSD, SMS, and Web Dashboard**  reaching even rural farmers with no smartphones or internet.
+-  Predictive insights for 7 days ahead.  
+-  Accessible delivery via **USSD and Web Dashboard**  reaching even rural farmers with no smartphones or internet.
 
 ## Problem Statement  
 
@@ -23,8 +23,8 @@ In Kenya, market prices for key food commodities fluctuate due to seasonal chang
 ##  Business Objectives
 
 **1. Provide Real-Time Market Price Information** – build a centralized data system to collect, clean and display up-to-date prices.  
-**2. Predict Future Price Trends** – use ML models (Ridge Regresision,Prophet, XGBoost, LSTM) to forecast prices for better planning.  
-**3. Deliver Insights via Inclusive Channels** – deploy to USSD, SMS and Web Dashboard for broad accessibility.  
+**2. Predict Future Price Trends** – use ML models (Ridge Regresision, Prophet, XGBoost, LSTM) to forecast prices for better planning.  
+**3. Deliver Insights via Inclusive Channels** – deploy to USSD and Web Dashboard for broad accessibility.  
 
 ## Dataset 
 
@@ -49,7 +49,7 @@ It includes daily and weekly wholesale & retail prices for a wide range of commo
    - XGBoost
      
 **4. Deployment Prep** – Exported `.pkl` models, designed database schema, created API endpoints.  
-**5. Channels** – Web dashboard, USSD and SMS (Africa’s Talking).  
+**5. Channels** – Web dashboard and USSD (Africa’s Talking).  
 
 ## Database Structure & Initial Checks
 
@@ -57,8 +57,8 @@ The **MaliYaLeo** system uses **PostgreSQL** as its main database. The schema cu
 
 * **market\_data** – Stores historical market prices for key commodities.
 * **predictions** – Contains machine learning–generated price forecasts.
-* **users** – Logs all user interactions via USSD, SMS, and web requests.
-* **system\_logs** – Tracks API events, system messages, and errors.
+* **users** – Logs all user interactions via USSD and web requests.
+* **system\_logs** – Tracks API events, system messages and errors.
 
 ![Entity Relationship Diagram here](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/database_structure.png)
 
@@ -78,8 +78,8 @@ Before modeling and analysis several data quality checks and cleaning steps were
 ###  Overview of Findings  
 
 * Commodity prices follow clear seasonal patterns peaking around harvest and planting periods.
-* XGBoost emerged as the best model predicting 7–30 day prices with R² > 0.88 enabling actionable planning for farmers and traders.
-* USSD & SMS channels widen access  ensuring even rural users without smartphones benefit.
+* XGBoost emerged as the best model predicting 7-day prices with R² > 0.88 enabling actionable planning for farmers and traders.
+* USSD channels widen access ensuring even rural users without smartphones benefit.
 
 ### Modeling Overview
 
@@ -114,13 +114,13 @@ MaliYaLeo/
 ├──  Database/ (PostgreSQL)  
 │   ├── market_data       → Historical commodity prices  
 │   ├── predictions       → Machine learning forecasts  
-│   ├── users             → USSD, SMS & web interactions  
+│   ├── users             → USSD & web interactions  
 │   └── system_logs       → API events & error tracking  
 │
 ├──  Deployment/  
 │   ├── Web Dashboard (for price visualization)  
 │   ├── USSD service (price queries for feature phones)  
-│   └── SMS alerts (price updates & forecasts)
+│   
 │
 └── README.md
 ```
@@ -145,7 +145,7 @@ MaliYaLeo/
 
 ### **2: Predictive Planning**
 
-* XGBoost predicts prices 7–30 days ahead helping farmers and traders plan before shifts hit the market.
+* XGBoost predicts prices 7 days ahead helping farmers and traders plan before shifts hit the market.
 
 * Seasonal patterns are clear as prices drop in Aug–Sept (harvest season) and spike in Oct–Nov (pre-holiday demand).
 
@@ -192,7 +192,7 @@ Farmers can earn up to 25% more by selling in the right county market.
   
 * Most of this activity is conducted over **USSD** since rural areas have lower smartphone ownership and limited internet access ([Nairobi Business Monthly, “How tech is accelerating financial inclusion”](https://nairobibusinessmonthly.com/kenyans-love-instant-payments-and-thus-unstructured-supplementary-service-data-ussd-comes-out-as-a-better-option/)) 
 
-* This confirms that USSD/SMS channels will provide essential access for rural and underserved users.
+* This confirms that USSD channels will provide essential access for rural and underserved users.
 
 ## Recommendations  
 Based on the insights, we recommend:  
@@ -215,11 +215,11 @@ Based on the insights, we recommend:
 
 - Weather patterns were not sourced from a formal dataset instead, general knowledge of Kenya’s seasonal climate (harvest & planting seasons) was applied when interpreting price trends.
 - Some market price anomalies were capped at 99th percentile to handle outliers.  
-- Forecast accuracy is highest for 7–14 days uncertainty increases past 30 days.
+- Forecast accuracy is highest for 7 days uncertainty increases past 30 days.
 
 ##  Next Steps & Future Enhancements
 
 * Add more contextual features like integrate transport costs, inflation data, weather insights and supply volume to improve model accuracy.
 * Scale the model to other East African markets  extend beyond Kenya for regional price forecasting.
 * Deploy an API & web dashboard to provide real-time price data access for farmers, traders and policymakers.
-* Launch USSD & SMS service via Africa’s Talking  to ensure rural farmers without smartphones can access price forecasts.
+* Launch USSD service via Safaricom or Airtel to ensure rural farmers without smartphones can access price forecasts.
