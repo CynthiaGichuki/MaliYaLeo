@@ -1,6 +1,6 @@
 # MaliYaLeo: Market-Price-Planning-Assistant-for-Kenyan-Consumers-and-Farmers
 
-![MaliYaLeo Dashboard](link) 
+![MaliYaLeo Dashboard](https://github.com/CynthiaGichuki/MaliYaLeo/blob/EDA/Images/Dashboard.jpg) 
 
 **Team Members** : Sammy Macharia, Cynthia Gichuki, Abishang Mueni, Maureen Gathoni, Baraka Nyamai. 
 
