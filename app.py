@@ -43,6 +43,10 @@ def api_response(status: str, data=None, message="", error_code=0):
         "message": message
     })
 
+@app.get("/")
+def home():
+    return {"message": "Welcome to MaliYaLeo – Your market price prediction API is running!"}
+
 # Route to serve the main dashboard
 #@app.get("/")
 #def read_index():
