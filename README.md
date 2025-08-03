@@ -78,7 +78,7 @@ Before modeling and analysis several data quality checks and cleaning steps were
 ###  Overview of Findings  
 
 * Commodity prices follow clear seasonal patterns peaking around harvest and planting periods.
-* XGBoost emerged as the best model predicting 7–30 day prices with R² > 0.91 enabling actionable planning for farmers and traders.
+* XGBoost emerged as the best model predicting 7–30 day prices with R² > 0.88 enabling actionable planning for farmers and traders.
 * USSD & SMS channels widen access  ensuring even rural users without smartphones benefit.
 
 ### Modeling Overview
@@ -86,12 +86,12 @@ Before modeling and analysis several data quality checks and cleaning steps were
 We tested multiple approaches to forecast prices.
 
 
-| **Model**            |      **Wholesale MSE ↓** |     **Wholesale R² ↑** |         **Retail MSE ↓** |        **Retail R² ↑** |
-| -------------------- | -----------------------: | ---------------------: | -----------------------: | ---------------------: |
-| **Ridge Regression** |                   500.84 |                 0.7850 |                   704.32 |                 0.7790 |
-| **Prophet**          |                    26.76 |                 0.0865 |                    16.98 |                -0.0656 |
-| **LSTM Neural Net**  |             22.20 (RMSE) |                 0.5850 |             Not reported |           Not reported |
-| **XGBoost**          | 176.99 (RMSE ≈ 13.3 KES) | 0.9154 (↑ from 0.8825) | 229.04 (RMSE ≈ 15.1 KES) | 0.9220 (↑ from 0.8931) |
+| **Model**                       |                     **Wholesale MSE ↓** | **Wholesale R² ↑** | **Retail MSE ↓** | **Retail R² ↑** |
+| ------------------------------- | --------------------------------------: | -----------------: | ---------------: | --------------: |
+| **Ridge Regression**            |                                  500.84 |             0.7850 |           704.32 |          0.7790 |
+| **Prophet**                     |                                   26.76 |             0.0865 |            16.98 |         -0.0656 |
+| **LSTM**                        | RMSE: 22.20 (MAE: 14.82, MAPE: 370.87%) |             0.5850 |     Not reported |    Not reported |
+| **XGBoost**                     |                                  259.87 |             0.8884 |           352.44 |          0.8894 |
 
 
 **Key takeaway:**
