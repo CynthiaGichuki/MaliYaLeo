@@ -23,22 +23,22 @@
             </ul>
         </div>
         <div class="content">
-            
-                <div class="dashboard-summary">
-                    <div class="summary-box">
-                        <h3>Total Commodities</h3>
-                        <div class="value">48</div>
-                    </div>
-                    <div class="summary-box">
-                        <h3>Markets Covered</h3>
-                        <div class="value">103</div>
-                    </div>
-                    <div class="summary-box">
-                        <h3>Total Counties</h3>
-                        <div class="value">47</div>
-                    </div>
+
+            <div class="dashboard-summary">
+                <div class="summary-box">
+                    <h3>Total Commodities</h3>
+                    <div class="value">48</div>
                 </div>
-        
+                <div class="summary-box">
+                    <h3>Markets Covered</h3>
+                    <div class="value">103</div>
+                </div>
+                <div class="summary-box">
+                    <h3>Total Counties</h3>
+                    <div class="value">47</div>
+                </div>
+            </div>
+
             <div id="home" class="section">
 
                 <section class="form-section">
@@ -268,21 +268,37 @@
                     commodityMap[selectedCounty][selectedMarket]
                 ) {
                     const commodities = commodityMap[selectedCounty][selectedMarket];
-                    commodities.forEach(commodity => {
-                        const option = document.createElement("option");
-                        option.value = commodity;
-                        option.textContent = commodity;
-                        commodityDropdown.appendChild(option);
-                    });
+
+                    if (commodities.length > 0) {
+                        commodities.forEach(commodity => {
+                            const option = document.createElement("option");
+                            option.value = commodity;
+                            option.textContent = commodity;
+                            commodityDropdown.appendChild(option);
+                        });
+                    } else {
+                        const noOption = document.createElement("option");
+                        noOption.value = "";
+                        noOption.textContent = "NO COMMODITIES AVAILABLE FOR THIS MARKET";
+                        noOption.disabled = true;
+                        commodityDropdown.appendChild(noOption);
+                    }
+                } else {
+                    const noOption = document.createElement("option");
+                    noOption.value = "";
+                    noOption.textContent = "NO COMMODITIES AVAILABLE FOR THIS MARKET";
+                    noOption.disabled = true;
+                    commodityDropdown.appendChild(noOption);
                 }
             }
 
-            // Update commodities when market or county changes
-            countyDropdown.addEventListener("change", updateCommodities);
-            marketDropdown.addEventListener("change", updateCommodities);
-        }
 
-        setupCommodityDropdown();
+                // Update commodities when market or county changes
+                countyDropdown.addEventListener("change", updateCommodities);
+                marketDropdown.addEventListener("change", updateCommodities);
+            }
+
+            setupCommodityDropdown();
     </script>
 
 
