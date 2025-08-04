@@ -10,7 +10,7 @@ from sqlalchemy import text,create_engine
 from sqlalchemy.exc import SQLAlchemyError
 import psycopg2
 from datetime import datetime, timedelta, date
-from model import predict_prices  # ML prediction function
+from API.model import predict_prices  # ML prediction function
 
 from fastapi.middleware.cors import CORSMiddleware
 #  Database connection 
