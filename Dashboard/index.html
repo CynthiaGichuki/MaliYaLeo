@@ -308,6 +308,39 @@
         setupCommodityDropdown();
     </script>
 
+    <script>
+        const dateInput = document.getElementById("dateInput");
+
+        // Define today's date
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Auto-calculate the most recent model run date
+        // Model runs every 7 days at 2 AM starting from July 31st
+        const firstRunDate = new Date("2025-07-31");
+        const daysSinceFirstRun = Math.floor((today - firstRunDate) / (1000 * 60 * 60 * 24));
+        const weeksSinceFirstRun = Math.floor(daysSinceFirstRun / 7);
+
+        const modelLastRunDate = new Date(firstRunDate);
+        modelLastRunDate.setDate(modelLastRunDate.getDate() + (weeksSinceFirstRun * 7));
+
+        // Calculate the end of the 7-day prediction window
+        const predictionWindowEnd = new Date(modelLastRunDate);
+        predictionWindowEnd.setDate(predictionWindowEnd.getDate() + 6); // 7 days inclusive
+
+        // Set the minimum selectable date to today
+        dateInput.min = today.toISOString().split('T')[0];
+
+        // If the prediction window hasn't expired
+        if (predictionWindowEnd >= today) {
+            // Set the maximum selectable date to the end of the prediction window
+            dateInput.max = predictionWindowEnd.toISOString().split('T')[0];
+        } else {
+            // Disable input if predictions are outdated
+            dateInput.disabled = true;
+            dateInput.placeholder = "No available predictions";
+        }
+    </script>
 
     <script src="js/predict.js"></script>
     <script src="js/chart-setup.js"></script>
