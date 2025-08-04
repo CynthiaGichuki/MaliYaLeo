@@ -73,7 +73,15 @@
             </div>
             <div id="analytics" class="section" style="display: none;">
                 <h2>Commodity Price Trends</h2>
+                <div class="analytics-filters">
+                    <label>Select Commodity:
+                        <select id="analyticsCommodityDropdown">
+                            <option value="">-- Select Commodity --</option>
+                        </select>
+                    </label>
+                </div>
                 <canvas id="marketChart" width="600" height="300"></canvas>
+
             </div>
 
             <div id="markets" class="section" style="display: none;">
@@ -292,17 +300,18 @@
                 }
             }
 
+            // Update commodities when market or county changes
+            countyDropdown.addEventListener("change", updateCommodities);
+            marketDropdown.addEventListener("change", updateCommodities);
+        }
 
-                // Update commodities when market or county changes
-                countyDropdown.addEventListener("change", updateCommodities);
-                marketDropdown.addEventListener("change", updateCommodities);
-            }
-
-            setupCommodityDropdown();
+        setupCommodityDropdown();
     </script>
 
 
     <script src="js/predict.js"></script>
+    <script src="js/chart-setup.js"></script>
+    <script src="js/markets.js"></script>
 
 </body>
 
