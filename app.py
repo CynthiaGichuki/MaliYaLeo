@@ -297,11 +297,11 @@ def get_price_from_db(commodity, price_type, market, county, date_str):
     return result[0] if result else None
 
 def get_prediction_from_db(commodity, price_type, market, county, date_str):
-    column = f'"{price_type}UnitPrice"'
+    column = f'"{price_type}_price"'
     query = text(f"""
         SELECT {column}
         FROM predictions
-        WHERE "commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
+        WHERE "Commodity" = '{commodity}' AND "Market" = '{market}' AND "County" = '{county}' AND "Date" = '{date_str}'
         ORDER BY "Date" DESC
         LIMIT 1
     """)

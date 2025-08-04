@@ -144,9 +144,9 @@ if __name__ == "__main__":
     start = datetime.now()
     today = datetime.today().strftime("%Y-%m-%d")
 
-    print("Cleaning predictions table...")
-    with engine.begin() as conn:
-        conn.execute(text("DELETE FROM predictions"))
+    #print("Cleaning predictions table...")
+    #with engine.begin() as conn:
+        #conn.execute(text("DELETE FROM predictions"))
 
     try:
         market_df = fetch_market_data()
