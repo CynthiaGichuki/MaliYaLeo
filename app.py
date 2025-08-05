@@ -152,6 +152,87 @@ def get_latest_predictions(
     finally:
         db.close()
 
+
+def get_prediction_from_db(commodity, price_type, market, county, date_str):
+    column_map = {
+        "Wholesale": "Wholesale_price",
+        "Retail": "Retail_price"
+    }
+    print("DEBUG: price_type =", price_type)
+
+    try:
+        column = column_map[price_type]
+    except KeyError:
+        raise HTTPException(status_code=400, detail="Invalid price type passed to prediction query.")
+
+    query = text(f"""
+        SELECT "{column}"
+        FROM predictions
+        WHERE "Commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
+    """)
+
+    with engine.connect() as conn:
+        result = conn.execute(query, {
+            "commodity": commodity,
+            "market": market,
+            "county": county,
+            "date": date_str
+        }).fetchone()
+
+    return result[0] if result else None
+
+def update_user_preference(phone, commodity=None, market=None, county=None):
+    updates = []
+    params = {"phone": phone}
+
+    if commodity:
+        updates.append("preferred_commodity = :commodity")
+        params["commodity"] = commodity
+    if market:
+        updates.append("preferred_market = :market")
+        params["market"] = market
+    if county:
+        updates.append("preferred_county = :county")
+        params["county"] = county
+
+    if updates:
+        update_str = ", ".join(updates) + ", last_accessed = CURRENT_TIMESTAMP"
+        stmt = text(f"""
+            UPDATE users SET {update_str}
+            WHERE phone_number = :phone
+        """)
+        with engine.begin() as conn:
+            conn.execute(stmt, params)
+
+def upsert_user(phone):
+    with engine.begin() as conn:
+        stmt = text("""
+            INSERT INTO users (phone_number, last_accessed, subscribed_alerts)
+            VALUES (:phone, CURRENT_TIMESTAMP, FALSE)
+            ON CONFLICT (phone_number)
+            DO UPDATE SET last_accessed = CURRENT_TIMESTAMP;
+        """)
+        conn.execute(stmt, {"phone": phone})
+
+def toggle_subscription(phone):
+    with engine.begin() as conn:
+        stmt = text("""
+            UPDATE users
+            SET subscribed_alerts = NOT subscribed_alerts,
+                last_accessed = CURRENT_TIMESTAMP
+            WHERE phone_number = :phone;
+        """)
+        conn.execute(stmt, {"phone": phone})
+
+def get_subscription_status(phone):
+    with engine.connect() as conn:
+        result = conn.execute(text("""
+            SELECT subscribed_alerts FROM users WHERE phone_number = :phone;
+        """), {"phone": phone})
+        row = result.fetchone()
+        return row[0] if row else False
+    
+
 #  USSD Menu Handler 
 @app.post("/ussd")
 async def ussd_handler(
@@ -211,11 +292,8 @@ async def ussd_handler(
             price_type = "Wholesale" if user_type_input == "1" else "Retail"
 
             update_user_preference(phoneNumber, commodity, market, county)
+            price = get_prediction_from_db(commodity, price_type, market, county, str(query_date))
 
-            if query_date > today:
-                price = get_prediction_from_db(commodity, price_type, market, county, str(query_date))
-            else:
-                price = get_price_from_db(commodity, price_type, market, county, str(query_date))
             if price:
                 return PlainTextResponse(f"END {price_type} price for {commodity} in {market}, {county} on {query_date} is KES {price}.")
             else:
@@ -249,103 +327,27 @@ async def ussd_handler(
 
     return PlainTextResponse(response)
 
-def upsert_user(phone):
-    with engine.begin() as conn:
-        stmt = text("""
-            INSERT INTO users (phone_number, last_accessed, subscribed_alerts)
-            VALUES (:phone, CURRENT_TIMESTAMP, FALSE)
-            ON CONFLICT (phone_number)
-            DO UPDATE SET last_accessed = CURRENT_TIMESTAMP;
-        """)
-        conn.execute(stmt, {"phone": phone})
 
+# def get_price_from_db(commodity, price_type, market, county, date_str):
+#     column = f'"{price_type}UnitPrice"'
+#     query = text(f"""
+#         SELECT {column}
+#         FROM market_data
+#         WHERE "Commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
+#         ORDER BY "Date" DESC
+#         LIMIT 1
+#     """)
 
-def update_user_preference(phone, commodity=None, market=None, county=None):
-    updates = []
-    params = {"phone": phone}
+#     with engine.connect() as conn:
+#         result = conn.execute(query, {
+#             "commodity": commodity,
+#             "market": market,
+#             "county": county,
+#             "date": date_str
+#         }).fetchone()
 
-    if commodity:
-        updates.append("preferred_commodity = :commodity")
-        params["commodity"] = commodity
-    if market:
-        updates.append("preferred_market = :market")
-        params["market"] = market
-    if county:
-        updates.append("preferred_county = :county")
-        params["county"] = county
+#     return result[0] if result else None
 
-    if updates:
-        update_str = ", ".join(updates) + ", last_accessed = CURRENT_TIMESTAMP"
-        stmt = text(f"""
-            UPDATE users SET {update_str}
-            WHERE phone_number = :phone
-        """)
-        with engine.begin() as conn:
-            conn.execute(stmt, params)
-
-
-def get_price_from_db(commodity, price_type, market, county, date_str):
-    column = f'"{price_type}UnitPrice"'
-    query = text(f"""
-        SELECT {column}
-        FROM market_data
-        WHERE "Commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
-        ORDER BY "Date" DESC
-        LIMIT 1
-    """)
-
-    with engine.connect() as conn:
-        result = conn.execute(query, {
-            "commodity": commodity,
-            "market": market,
-            "county": county,
-            "date": date_str
-        }).fetchone()
-
-    return result[0] if result else None
-
-def get_prediction_from_db(commodity, price_type, market, county, date_str):
-    column_map = {
-        "Wholesale": "Wholesale_price",
-        "Retail": "Retail_price"
-    }
-    column = column_map.get(price_type)
-    if not column:
-        raise HTTPException(status_code=400, detail="Invalid price type")
-
-    query = text(f"""
-        SELECT "{column}"
-        FROM predictions
-        WHERE "Commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
-    """)
-
-    with engine.connect() as conn:
-        result = conn.execute(query, {
-            "commodity": commodity,
-            "market": market,
-            "county": county,
-            "date": date_str
-        }).fetchone()
-
-    return result[0] if result else None
-
-def toggle_subscription(phone):
-    with engine.begin() as conn:
-        stmt = text("""
-            UPDATE users
-            SET subscribed_alerts = NOT subscribed_alerts,
-                last_accessed = CURRENT_TIMESTAMP
-            WHERE phone_number = :phone;
-        """)
-        conn.execute(stmt, {"phone": phone})
-
-def get_subscription_status(phone):
-    with engine.connect() as conn:
-        result = conn.execute(text("""
-            SELECT subscribed_alerts FROM users WHERE phone_number = :phone;
-        """), {"phone": phone})
-        row = result.fetchone()
-        return row[0] if row else False
     
 # Refresh forecasts every 7 days 
 def update_all_forecasts():
