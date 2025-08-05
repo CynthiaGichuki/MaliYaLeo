@@ -248,7 +248,6 @@ async def ussd_handler(
         response += "2. Update preferences\n"
         response += "3. Toggle notifications"
         
-
     elif user_response[0] == "1":  # Check price flow
         if level == 1:
             response = "CON Are you a:\n1. Farmer\n2. Consumer"
