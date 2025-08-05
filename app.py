@@ -239,88 +239,101 @@ async def ussd_handler(
 ):
     user_response = text.strip().split("*")
     level = len(user_response)
+    response = "END An unexpected error occurred. Please try again later."
 
-    # Ensure user is created/upserted
-    upsert_user(phoneNumber)
+    try:
+        # Ensure user is created or updated
+        upsert_user(phoneNumber)
 
-    if text == "":
-        response = "CON Welcome to Market Prices\n"
-        response += "1. Check Price\n"
-        response += "2. Update Preferences\n"
-        response += "3. Subscribe/Unsubscribe Alerts"
+        if text == "":
+            response = (
+                "CON Welcome to Market Prices\n"
+                "1. Check Price\n"
+                "2. Update Preferences\n"
+                "3. Subscribe/Unsubscribe Alerts"
+            )
 
-    # PRICE CHECK (Farmer or Consumer)
-    elif user_response[0] == "1":
-        if level == 1:
-            response = "CON Are you a:\n1. Farmer\n2. Consumer"
-        elif level == 2:
-            if user_response[1] not in ["1", "2"]:
-                response = "END Invalid selection. Please try again."
-            else:
-                response = "CON Enter commodity:"
-        elif level == 3:
-            response = "CON Enter market:"
-        elif level == 4:
-            response = "CON Enter county:"
-        elif level == 5:
-            response = "CON Enter date (YYYY-MM-DD):"
-        elif level == 6:
-            user_type_input = user_response[1]
-            commodity = user_response[2].capitalize()
-            market = user_response[3].title()
-            county = user_response[4].title()
-            date_input = user_response[5]
+        #  1. PRICE CHECK 
+        elif user_response[0] == "1":
+            if level == 1:
+                response = "CON Are you a:\n1. Farmer\n2. Consumer"
+            elif level == 2:
+                if user_response[1] not in ["1", "2"]:
+                    response = "END Invalid selection. Please enter 1 or 2."
+                else:
+                    response = "CON Enter commodity:"
+            elif level == 3:
+                response = "CON Enter market:"
+            elif level == 4:
+                response = "CON Enter county:"
+            elif level == 5:
+                response = "CON Enter date (YYYY-MM-DD):"
+            elif level == 6:
+                user_type_input = user_response[1]
+                commodity = user_response[2].capitalize()
+                market = user_response[3].title()
+                county = user_response[4].title()
+                date_input = user_response[5]
 
-            # Validate date format
-            from datetime import datetime
-            try:
-                query_date = datetime.strptime(date_input, "%Y-%m-%d").date()
-            except ValueError:
-                return PlainTextResponse("END Invalid date format. Use YYYY-MM-DD.")
-            
-            today = date.today()
+                # Validate date format
+                try:
+                    query_date = datetime.strptime(date_input, "%Y-%m-%d").date()
+                except ValueError:
+                    return PlainTextResponse("END Invalid date format. Use YYYY-MM-DD.")
 
-            if query_date < (today - timedelta(days=10)):
-                return PlainTextResponse("END Date too far in the past. Please enter a date within the last 10 days or any future date.")
+                today = date.today()
+                if query_date < (today - timedelta(days=10)):
+                    return PlainTextResponse(
+                        "END Date too far in the past. Please enter within last 10 days or any future date."
+                    )
 
+                price_type = "Wholesale" if user_type_input == "1" else "Retail"
+                update_user_preference(phoneNumber, commodity, market, county)
+                price = get_prediction_from_db(commodity, price_type, market, county, str(query_date))
 
-            price_type = "Wholesale" if user_type_input == "1" else "Retail"
+                if price:
+                    response = (
+                        f"END {price_type} price for {commodity} in {market}, {county} "
+                        f"on {query_date} is KES {price}."
+                    )
+                else:
+                    response = (
+                        f"END No {price_type.lower()} price data found for {commodity} in {market}, {county} "
+                        f"on {query_date}."
+                    )
 
-            update_user_preference(phoneNumber, commodity, market, county)
-            price = get_prediction_from_db(commodity, price_type, market, county, str(query_date))
+        # 2. UPDATE PREFERENCES 
+        elif user_response[0] == "2":
+            if level == 1:
+                response = "CON Enter preferred commodity:"
+            elif level == 2:
+                response = "CON Enter preferred market:"
+            elif level == 3:
+                response = "CON Enter preferred county:"
+            elif level == 4:
+                commodity = user_response[1].capitalize()
+                market = user_response[2].title()
+                county = user_response[3].title()
+                update_user_preference(phoneNumber, commodity, market, county)
+                response = "END Preferences updated successfully."
 
-            if price:
-                return PlainTextResponse(f"END {price_type} price for {commodity} in {market}, {county} on {query_date} is KES {price}.")
-            else:
-                return PlainTextResponse(f"END No {price_type.lower()} price data found for {commodity} in {market}, {county} on {query_date}.")
+        # 3. SUBSCRIBE/UNSUBSCRIBE 
+        elif user_response[0] == "3":
+            toggle_subscription(phoneNumber)
+            sub_status = get_subscription_status(phoneNumber)
+            msg = "Subscribed to alerts." if sub_status else "Unsubscribed from alerts."
+            response = f"END {msg}"
 
+        # INVALID OPTION 
+        else:
+            response = "END Invalid choice. Please try again."
 
-    # UPDATE PREFERENCES
-    elif user_response[0] == "2":
-        if level == 1:
-            response = "CON Enter preferred commodity:"
-        elif level == 2:
-            response = "CON Enter preferred market:"
-        elif level == 3:
-            response = "CON Enter preferred county:"
-        elif level == 4:
-            commodity = user_response[1].capitalize()
-            market = user_response[2].title()
-            county = user_response[3].title()
-            update_user_preference(phoneNumber, commodity, market, county)
-            response = "END Preferences updated successfully."
-
-    # SUBSCRIBE/UNSUBSCRIBE
-    elif user_response[0] == "3":
-        toggle_subscription(phoneNumber)
-        sub_status = get_subscription_status(phoneNumber)
-        msg = "Subscribed to alerts." if sub_status else "Unsubscribed from alerts."
-        response = f"END {msg}"
-
-    else:
-        response = "END Invalid choice. Try again."
+    except Exception as e:
+        response = "END A server error occurred. Please try again later."
+        # Optional: Log error e somewhere (e.g., Sentry, console, etc.)
 
     return PlainTextResponse(response)
+
 
 
 # def get_price_from_db(commodity, price_type, market, county, date_str):
