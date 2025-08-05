@@ -105,7 +105,7 @@ def get_latest_predictions(
 ):
     # Sanitize inputs
     commodity = commodity.strip()
-    market = market.strip()
+    market = market.strip() 
     county = county.strip()
     db: Session = SessionLocal()
     try:
@@ -154,21 +154,16 @@ def get_latest_predictions(
 
 
 def get_prediction_from_db(commodity, price_type, market, county, date_str):
-    column_map = {
-        "Wholesale": "Wholesale_price",
-        "Retail": "Retail_price"
-    }
-    print("DEBUG: price_type =", price_type)
-
-    try:
-        column = column_map[price_type]
-    except KeyError:
-        raise HTTPException(status_code=400, detail="Invalid price type passed to prediction query.")
+    column = "Wholesale_price" if price_type == "Wholesale" else "Retail_price"
 
     query = text(f"""
         SELECT "{column}"
         FROM predictions
-        WHERE "Commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
+        WHERE "Commodity" = :commodity
+          AND "Market" = :market
+          AND "County" = :county
+          AND "Date" = :date
+        LIMIT 1
     """)
 
     with engine.connect() as conn:
@@ -180,6 +175,7 @@ def get_prediction_from_db(commodity, price_type, market, county, date_str):
         }).fetchone()
 
     return result[0] if result else None
+
 
 def update_user_preference(phone, commodity=None, market=None, county=None):
     updates = []
