@@ -282,7 +282,6 @@ async def ussd_handler(
             except ValueError:
                 return PlainTextResponse("END Invalid date format. Use YYYY-MM-DD.")
             
-            query_date = datetime.strptime(date_input, "%Y-%m-%d").date()
             today = date.today()
 
             if query_date < (today - timedelta(days=10)):
