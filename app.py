@@ -213,6 +213,11 @@ async def ussd_handler(
                 price = get_prediction_from_db(commodity, price_type, market, county, str(query_date))
             else:
                 price = get_price_from_db(commodity, price_type, market, county, str(query_date))
+            if price:
+                return PlainTextResponse(f"END {price_type} price for {commodity} in {market}, {county} on {query_date} is KES {price}.")
+            else:
+                return PlainTextResponse(f"END No {price_type.lower()} price data found for {commodity} in {market}, {county} on {query_date}.")
+
 
     # UPDATE PREFERENCES
     elif user_response[0] == "2":
@@ -297,13 +302,18 @@ def get_price_from_db(commodity, price_type, market, county, date_str):
     return result[0] if result else None
 
 def get_prediction_from_db(commodity, price_type, market, county, date_str):
-    column = f'"{price_type}_price"'
+    column_map = {
+        "Wholesale": "Wholesale_price",
+        "Retail": "Retail_price"
+    }
+    column = column_map.get(price_type)
+    if not column:
+        raise HTTPException(status_code=400, detail="Invalid price type")
+
     query = text(f"""
-        SELECT {column}
+        SELECT "{column}"
         FROM predictions
-        WHERE "Commodity" = '{commodity}' AND "Market" = '{market}' AND "County" = '{county}' AND "Date" = '{date_str}'
-        ORDER BY "Date" DESC
-        LIMIT 1
+        WHERE "Commodity" = :commodity AND "Market" = :market AND "County" = :county AND "Date" = :date
     """)
 
     with engine.connect() as conn:
