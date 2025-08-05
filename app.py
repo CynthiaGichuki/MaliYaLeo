@@ -201,9 +201,12 @@ async def ussd_handler(
             except ValueError:
                 return PlainTextResponse("END Invalid date format. Use YYYY-MM-DD.")
             
+            query_date = datetime.strptime(date_input, "%Y-%m-%d").date()
             today = date.today()
+
             if query_date < (today - timedelta(days=10)):
                 return PlainTextResponse("END Date too far in the past. Please enter a date within the last 10 days or any future date.")
+
 
             price_type = "Wholesale" if user_type_input == "1" else "Retail"
 
