@@ -277,93 +277,290 @@ th {
 }
 
 .markets-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.markets-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-type-badge {
+  background: #3498db;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .markets-filters {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
 .markets-filters select,
 .markets-filters input {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.markets-filters select:focus,
+.markets-filters input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .refresh-btn {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
 }
 
-.refresh-btn:hover {
-    background: #218838;
+.refresh-btn:hover:not(:disabled) {
+  background: #229954;
+  transform: translateY(-1px);
+}
+
+.refresh-btn:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .markets-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.markets-table thead {
+  background: #34495e;
+  color: white;
+}
+
+.markets-table th,
+.markets-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
 .markets-table th {
-    background: #343a40;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    cursor: pointer;
-    user-select: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
 .markets-table th:hover {
-    background: #495057;
+  background: #2c3e50;
 }
 
-.markets-table td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
+.markets-table th i {
+  margin-left: 5px;
+  opacity: 0.7;
 }
 
 .markets-table tbody tr:hover {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
+}
+
+.markets-table tbody tr td i.fa-spinner {
+  margin-right: 10px;
 }
 
 .price-cell {
-    font-weight: 600;
-    color: #28a745;
+  min-width: 180px;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.price-cell div {
+  margin: 2px 0;
+  font-size: 13px;
+}
+
+.price-cell strong {
+  color: #27ae60;
+  font-weight: 600;
 }
 
 .price-change {
-    font-size: 12px;
-    margin-left: 8px;
+  font-size: 12px;
+  margin-left: 8px;
 }
 
 .price-up {
-    color: #dc3545;
+  color: #dc3545;
 }
 
 .price-down {
-    color: #28a745;
+  color: #28a745;
 }
 
 .date-cell {
-    color: #6c757d;
+  min-width: 100px;
+  font-size: 13px;
+  color: #7f8c8d;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.pagination-info {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-controls button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #3498db;
+}
+
+.pagination-controls button:disabled {
+  background: #f8f9fa;
+  color: #bdc3c7;
+  cursor: not-allowed;
+  border-color: #ecf0f1;
+}
+
+.pagination-controls button:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-btn {
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  background: white !important;
+  color: #333 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  min-width: 40px;
+  text-align: center;
+  transition: all 0.2s ease !important;
+}
+
+.page-btn:hover {
+  background: #f8f9fa !important;
+  border-color: #3498db !important;
+}
+
+.page-btn:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.page-btn.active {
+  background: #3498db !important;
+  border-color: #3498db !important;
+  color: white !important;
+}
+
+.page-ellipsis {
+  padding: 8px 4px;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .markets-filters {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .markets-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .markets-table {
     font-size: 12px;
+  }
+  
+  .markets-table th,
+  .markets-table td {
+    padding: 8px 10px;
+  }
+  
+  .pagination-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .pagination-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
