@@ -19,11 +19,10 @@
                 <li data-section="home"><i class="fa fa-home"></i> Home</li>
                 <li data-section="analytics"><i class="fa fa-chart-line"></i> Analytics</li>
                 <li data-section="markets"><i class="fa fa-store"></i> Markets</li>
-                <li><i class="fa fa-cog"></i> Settings</li>
+                <!-- <li><i class="fa fa-cog"></i> Settings</li> -->
             </ul>
         </div>
         <div class="content">
-
             <div class="dashboard-summary">
                 <div class="summary-box">
                     <h3>Total Commodities</h3>
@@ -40,7 +39,6 @@
             </div>
 
             <div id="home" class="section">
-
                 <section class="form-section">
                     <h2>Plan Your Market Budget</h2>
                     <form id="pricePredictionForm">
@@ -74,14 +72,48 @@
             <div id="analytics" class="section" style="display: none;">
                 <h2>Commodity Price Trends</h2>
                 <div class="analytics-filters">
-                    <label>Select Commodity:
-                        <select id="analyticsCommodityDropdown">
-                            <option value="">-- Select Commodity --</option>
+                    <div class="filter-group">
+                        <label for="analyticsDaysDropdown">Days</label>
+                        <select id="analyticsDaysDropdown">
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="90">Last 90 days</option>
                         </select>
-                    </label>
-                </div>
-                <canvas id="marketChart" width="600" height="300"></canvas>
+                    </div>
 
+                    <div class="filter-group">
+                        <label for="analyticsCountyDropdown">County</label>
+                        <select id="analyticsCountyDropdown">
+                            <option value="">Select County</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="analyticsMarketDropdown">Market</label>
+                        <select id="analyticsMarketDropdown">
+                            <option value="">Select Market</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="analyticsCommodityDropdown">Commodity</label>
+                        <select id="analyticsCommodityDropdown">
+                            <option value="">Select Commodity</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="priceType">Price Type</label>
+                        <select id="priceType">
+                            <option value="RetailUnitPrice">Retail</option>
+                            <option value="WholesaleUnitPrice">Wholesale</option>
+                        </select>
+                    </div>
+
+                    <button id="generateGraphBtn" class="generate-btn">Generate Graph</button>
+                </div>
+
+                <canvas id="marketChart" width="600" height="300"></canvas>
             </div>
 
             <div id="markets" class="section" style="display: none;">
@@ -115,27 +147,6 @@
             </div>
         </div>
     </div>
-    <script>
-        const ctx = document.getElementById('marketChart').getContext('2d');
-        const marketChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-                datasets: [{
-                    label: 'Maize Prices (KES)',
-                    data: [45, 50, 47, 55],
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    fill: false
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                }
-            }
-        });
-    </script>
 
     <!-- Section Toggle Logic -->
     <script>
@@ -212,100 +223,115 @@
             "West Pokot": ["Kapenguria", "Chepareria", "Sigor", "Ortum"]
         };
 
-        const countyDropdown = document.getElementById("countyDropdown");
-        const marketDropdown = document.getElementById("marketDropdown");
-
+        const countyDropdowns = [
+            document.getElementById("countyDropdown"),
+            document.getElementById("analyticsCountyDropdown")
+        ];
+        const marketDropdowns = [
+            document.getElementById("marketDropdown"),
+            document.getElementById("analyticsMarketDropdown")
+        ];
         // Populate county dropdown
         Object.keys(countyMarketMap).sort().forEach(county => {
-            const option = document.createElement("option");
-            option.value = county;
-            option.textContent = county;
-            countyDropdown.appendChild(option);
+            countyDropdowns.forEach(dropdown => {
+                const option = document.createElement("option");
+                option.value = county;
+                option.textContent = county;
+                dropdown.appendChild(option.cloneNode(true));
+            })
         });
 
         // Update markets when a county is selected
-        countyDropdown.addEventListener("change", function () {
-            const selectedCounty = this.value;
-            const markets = countyMarketMap[selectedCounty] || [];
+        countyDropdowns.forEach((countyDropdown, index) => {
+            countyDropdown.addEventListener("change", function () {
+                const selectedCounty = this.value;
+                const markets = countyMarketMap[selectedCounty] || [];
+                const marketDropdown = marketDropdowns[index];
 
-            // Clear previous market options
-            marketDropdown.innerHTML = '<option value="">-- Select Market --</option>';
+                // Clear previous market options
+                marketDropdown.innerHTML = '<option value="">-- Select Market --</option>';
 
-            // Populate markets for selected county
-            markets.forEach(market => {
-                const option = document.createElement("option");
-                option.value = market;
-                option.textContent = market;
-                marketDropdown.appendChild(option);
+                markets.forEach(market => {
+                    const option = document.createElement("option");
+                    option.value = market;
+                    option.textContent = market;
+                    marketDropdown.appendChild(option);
+                });
             });
         });
     </script>
 
     <script>
         let commodityMap = {};
-
         async function loadCommodityMap() {
             try {
                 const response = await fetch('commodity_map.json');
                 if (!response.ok) throw new Error("Failed to load commodity data");
-
                 commodityMap = await response.json();
             } catch (err) {
                 console.error("Error loading commodity map:", err);
             }
         }
 
-        async function setupCommodityDropdown() {
+        async function setupCommodityDropdowns() {
             await loadCommodityMap();
 
-            const countyDropdown = document.getElementById("countyDropdown");
-            const marketDropdown = document.getElementById("marketDropdown");
-            const commodityDropdown = document.getElementById("commodityDropdown");
+            const formPairs = [
+                {
+                    county: document.getElementById("countyDropdown"),
+                    market: document.getElementById("marketDropdown"),
+                    commodity: document.getElementById("commodityDropdown")
+                },
+                {
+                    county: document.getElementById("analyticsCountyDropdown"),
+                    market: document.getElementById("analyticsMarketDropdown"),
+                    commodity: document.getElementById("analyticsCommodityDropdown")
+                }
+            ];
 
-            function updateCommodities() {
-                const selectedCounty = countyDropdown.value;
-                const selectedMarket = marketDropdown.value;
+            formPairs.forEach(({ county, market, commodity }) => {
+                function updateCommodities() {
+                    const selectedCounty = county.value;
+                    const selectedMarket = market.value;
 
-                // Clear previous options
-                commodityDropdown.innerHTML = '<option value="">-- Select Commodity --</option>';
+                    commodity.innerHTML = '<option value="">-- Select Commodity --</option>';
 
-                if (
-                    selectedCounty &&
-                    selectedMarket &&
-                    commodityMap[selectedCounty] &&
-                    commodityMap[selectedCounty][selectedMarket]
-                ) {
-                    const commodities = commodityMap[selectedCounty][selectedMarket];
-
-                    if (commodities.length > 0) {
-                        commodities.forEach(commodity => {
-                            const option = document.createElement("option");
-                            option.value = commodity;
-                            option.textContent = commodity;
-                            commodityDropdown.appendChild(option);
-                        });
+                    if (
+                        selectedCounty &&
+                        selectedMarket &&
+                        commodityMap[selectedCounty] &&
+                        commodityMap[selectedCounty][selectedMarket]
+                    ) {
+                        const commodities = commodityMap[selectedCounty][selectedMarket];
+                        if (commodities.length > 0) {
+                            commodities.forEach(commodityName => {
+                                const option = document.createElement("option");
+                                option.value = commodityName;
+                                option.textContent = commodityName;
+                                commodity.appendChild(option);
+                            });
+                        } else {
+                            const noOption = document.createElement("option");
+                            noOption.value = "";
+                            noOption.textContent = "NO COMMODITIES AVAILABLE FOR THIS MARKET";
+                            noOption.disabled = true;
+                            commodity.appendChild(noOption);
+                        }
                     } else {
                         const noOption = document.createElement("option");
                         noOption.value = "";
                         noOption.textContent = "NO COMMODITIES AVAILABLE FOR THIS MARKET";
                         noOption.disabled = true;
-                        commodityDropdown.appendChild(noOption);
+                        commodity.appendChild(noOption);
                     }
-                } else {
-                    const noOption = document.createElement("option");
-                    noOption.value = "";
-                    noOption.textContent = "NO COMMODITIES AVAILABLE FOR THIS MARKET";
-                    noOption.disabled = true;
-                    commodityDropdown.appendChild(noOption);
                 }
-            }
 
-            // Update commodities when market or county changes
-            countyDropdown.addEventListener("change", updateCommodities);
-            marketDropdown.addEventListener("change", updateCommodities);
+                county.addEventListener("change", updateCommodities);
+                market.addEventListener("change", updateCommodities);
+            });
         }
 
-        setupCommodityDropdown();
+        setupCommodityDropdowns();
     </script>
 
     <script>
