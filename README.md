@@ -223,3 +223,6 @@ Based on the insights, we recommend:
 * Scale the model to other East African markets  extend beyond Kenya for regional price forecasting.
 * Deploy an API & web dashboard to provide real-time price data access for farmers, traders and policymakers.
 * Launch USSD service via Safaricom or Airtel to ensure rural farmers without smartphones can access price forecasts.
+
+# Deployment 
+Daashboard URL : https://mali-ya-leo.vercel.app/
