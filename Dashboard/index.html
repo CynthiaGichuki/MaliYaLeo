@@ -26,15 +26,15 @@
             <div class="dashboard-summary">
                 <div class="summary-box">
                     <h3>Total Commodities</h3>
-                    <div class="value">48</div>
+                    <div class="value"></div>
                 </div>
                 <div class="summary-box">
                     <h3>Markets Covered</h3>
-                    <div class="value">103</div>
+                    <div class="value"></div>
                 </div>
                 <div class="summary-box">
                     <h3>Total Counties</h3>
-                    <div class="value">47</div>
+                    <div class="value"></div>
                 </div>
             </div>
 
@@ -75,9 +75,9 @@
                     <div class="filter-group">
                         <label for="analyticsDaysDropdown">Days</label>
                         <select id="analyticsDaysDropdown">
-                            <option value="7">Last 7 days</option>
-                            <option value="30">Last 30 days</option>
-                            <option value="90">Last 90 days</option>
+                            <option value="7">Last 7 data points</option>
+                            <option value="30">Last 30 data points</option>
+                            <option value="90">Last 90 data points</option>
                         </select>
                     </div>
 
@@ -333,45 +333,27 @@
 
         setupCommodityDropdowns();
     </script>
-
-    <script>
-        const dateInput = document.getElementById("dateInput");
-
-        // Define today's date
+     <script>
+      const dateInput = document.getElementById("dateInput");
         const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        // Auto-calculate the most recent model run date
-        // Model runs every 7 days at 2 AM starting from July 31st
-        const firstRunDate = new Date("2025-07-31");
-        const daysSinceFirstRun = Math.floor((today - firstRunDate) / (1000 * 60 * 60 * 24));
-        const weeksSinceFirstRun = Math.floor(daysSinceFirstRun / 7);
-
-        const modelLastRunDate = new Date(firstRunDate);
-        modelLastRunDate.setDate(modelLastRunDate.getDate() + (weeksSinceFirstRun * 7));
-
-        // Calculate the end of the 7-day prediction window
-        const predictionWindowEnd = new Date(modelLastRunDate);
-        predictionWindowEnd.setDate(predictionWindowEnd.getDate() + 6); // 7 days inclusive
-
-        // Set the minimum selectable date to today
-        dateInput.min = today.toISOString().split('T')[0];
-
-        // If the prediction window hasn't expired
-        if (predictionWindowEnd >= today) {
-            // Set the maximum selectable date to the end of the prediction window
-            dateInput.max = predictionWindowEnd.toISOString().split('T')[0];
-        } else {
-            // Disable input if predictions are outdated
-            dateInput.disabled = true;
-            dateInput.placeholder = "No available predictions";
-        }
+        
+        // Get local date string
+        const todayLocal = new Date(today.getTime() - (today.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+        
+        // Set date range
+        dateInput.min = todayLocal;
+        
+        const sevenDays = new Date(today);
+        sevenDays.setDate(sevenDays.getDate() + 7);
+        const sevenDaysLocal = new Date(sevenDays.getTime() - (sevenDays.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+        
+        dateInput.max = sevenDaysLocal;
     </script>
 
     <script src="js/predict.js"></script>
     <script src="js/chart-setup.js"></script>
     <script src="js/markets.js"></script>
-
+    <script src="js/dynamic.js"></script>
 </body>
 
 </html>
