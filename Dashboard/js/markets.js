@@ -13,17 +13,17 @@ const paginationConfig = {
 // Fetch real current market prices from /latest endpoint
 async function fetchLatestMarketData() {
     const marketData = [];
-    
+
     try {
         // Get all county/market/commodity combinations from existing maps
-        await loadCommodityMap(); 
-        
+        await loadCommodityMap();
+
         const fetchPromises = [];
-        
+
         Object.entries(countyMarketMap).forEach(([county, markets]) => {
             markets.forEach(market => {
                 const commodities = commodityMap[county]?.[market] || [];
-                
+
                 commodities.forEach(commodity => {
                     // Fetch latest data for each combination
                     const params = new URLSearchParams({
@@ -31,31 +31,30 @@ async function fetchLatestMarketData() {
                         county,
                         market
                     });
-                    
+
                     const fetchPromise = fetch(`https://maliyaleo.onrender.com/latest?${params.toString()}`)
                         .then(response => response.json())
                         .then(data => {
                             if (data.status === "success" && data.data && data.data.Predicted_prices) {
                                 const predictions = data.data.Predicted_prices;
-                                
+
                                 // Get today's prediction (closest to today)
-                                const today = new Date().toISOString().split('T')[0]; 
-                                let todayPrediction = predictions.find(p => p.Date === today);
-                                
+                                const today = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toISOString().split('T')[0]; let todayPrediction = predictions.find(p => p.Date === today);
+
                                 // If no exact match for today, get the closest future prediction
                                 if (!todayPrediction) {
-                                    const sortedPredictions = predictions.sort((a, b) => 
+                                    const sortedPredictions = predictions.sort((a, b) =>
                                         new Date(a.Date) - new Date(b.Date)
                                     );
                                     todayPrediction = sortedPredictions[0];
                                 }
-                                
+
                                 // LATEST prediction instead
                                 // const sortedPredictions = predictions.sort((a, b) => 
                                 //     new Date(b.Date) - new Date(a.Date)
                                 // );
                                 // todayPrediction = sortedPredictions[0];
-                                
+
                                 if (todayPrediction) {
                                     marketData.push({
                                         county: data.data.County,
@@ -74,18 +73,18 @@ async function fetchLatestMarketData() {
                         .catch(error => {
                             console.warn(`Failed to fetch data for ${commodity} in ${market}, ${county}:`, error);
                         });
-                    
+
                     fetchPromises.push(fetchPromise);
                 });
             });
         });
-        
+
         // Wait for all API calls to complete
         await Promise.all(fetchPromises);
-        
+
         console.log(`Fetched ${marketData.length} market price records`);
         return marketData;
-        
+
     } catch (error) {
         console.error("Error fetching market data:", error);
         return [];
@@ -106,7 +105,7 @@ function populateMarketsTable() {
     // Calculate pagination
     const totalItems = filteredData.length;
     paginationConfig.totalPages = Math.ceil(totalItems / paginationConfig.itemsPerPage);
-    
+
     // Get items for current page
     const startIndex = (paginationConfig.currentPage - 1) * paginationConfig.itemsPerPage;
     const endIndex = startIndex + paginationConfig.itemsPerPage;
@@ -143,7 +142,7 @@ function updatePagination(totalItems) {
     }
 
     paginationContainer.style.display = 'flex';
-    
+
     const startItem = totalItems === 0 ? 0 : (paginationConfig.currentPage - 1) * paginationConfig.itemsPerPage + 1;
     const endItem = Math.min(paginationConfig.currentPage * paginationConfig.itemsPerPage, totalItems);
 
@@ -291,7 +290,7 @@ function setupFilters() {
     function updateMarketFilter() {
         const selectedCounty = countyFilter.value;
         marketFilter.innerHTML = '<option value="">All Markets</option>';
-        
+
         if (selectedCounty) {
             // Only show markets for the selected county
             const marketsInCounty = [...new Set(
@@ -299,7 +298,7 @@ function setupFilters() {
                     .filter(item => item.county === selectedCounty)
                     .map(item => item.market)
             )].sort();
-            
+
             marketsInCounty.forEach(market => {
                 const option = document.createElement('option');
                 option.value = market;
@@ -316,7 +315,7 @@ function setupFilters() {
                 marketFilter.appendChild(option);
             });
         }
-        
+
         // Reset commodity filter when market changes
         updateCommodityFilter();
     }
@@ -326,19 +325,19 @@ function setupFilters() {
         const selectedCounty = countyFilter.value;
         const selectedMarket = marketFilter.value;
         commodityFilter.innerHTML = '<option value="">All Commodities</option>';
-        
+
         let filteredCommodities = allMarketData;
-        
+
         // Filter by county if selected
         if (selectedCounty) {
             filteredCommodities = filteredCommodities.filter(item => item.county === selectedCounty);
         }
-        
+
         // Filter by market if selected
         if (selectedMarket) {
             filteredCommodities = filteredCommodities.filter(item => item.market === selectedMarket);
         }
-        
+
         const commodities = [...new Set(filteredCommodities.map(item => item.commodity))].sort();
         commodities.forEach(commodity => {
             const option = document.createElement('option');
@@ -394,7 +393,7 @@ function applyFilters() {
         const matchesCounty = !countyFilter || item.county === countyFilter;
         const matchesMarket = !marketFilter || item.market === marketFilter;
         const matchesCommodity = !commodityFilter || item.commodity === commodityFilter;
-        const matchesSearch = !searchTerm || 
+        const matchesSearch = !searchTerm ||
             item.county.toLowerCase().includes(searchTerm) ||
             item.market.toLowerCase().includes(searchTerm) ||
             item.commodity.toLowerCase().includes(searchTerm) ||
@@ -405,7 +404,7 @@ function applyFilters() {
         if (dateFilter) {
             const itemDate = new Date(item.date);
             const today = new Date();
-            
+
             switch (dateFilter) {
                 case 'today':
                     matchesDate = itemDate.toDateString() === today.toDateString();
@@ -465,12 +464,12 @@ function sortTable(column) {
 async function refreshMarketData() {
     const refreshBtn = document.querySelector('.refresh-btn');
     const tbody = document.querySelector('#markets tbody');
-    
+
     if (refreshBtn) refreshBtn.disabled = true;
     if (tbody) {
         tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;"><i class="fa fa-spinner fa-spin"></i> Fetching market data...</td></tr>';
     }
-    
+
     try {
         allMarketData = await fetchLatestMarketData();
         filteredData = [...allMarketData];
@@ -483,7 +482,7 @@ async function refreshMarketData() {
             tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #e74c3c; padding: 20px;">Failed to load market data. Please try again.</td></tr>';
         }
     }
-    
+
     if (refreshBtn) refreshBtn.disabled = false;
 }
 
